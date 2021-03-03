@@ -7,6 +7,7 @@ from src.algorithms.direct import DirectAlgorithm, Triangle, Point3d
 from src.parser import parse
 from src.render import Renderer, pygame
 from src.system.periscope import Periscope, MirrorLocation, Target
+import random
 
 
 class SolveAlgorithm(Enum):
@@ -89,8 +90,9 @@ class PeriscopeApplication:
             if i.type == pygame.QUIT:
                 exit_app = True
 
+        #possible_move = ['up', 'down', 'left', 'right']
+        #key = random.choice(possible_move)
         possible_move = ['up', 'up', 'left', 'left', 'up', 'left', 'up', 'up', 'up', 'left']
-        # key = random.choice(possible_move)
         key = possible_move[iteration]
         delta = 0.05
         self.periscope.prev_target.location.x = float(self.periscope.target.location.x)
@@ -115,9 +117,22 @@ class PeriscopeApplication:
         tee = self.periscope.target
         prev_tee = self.periscope.prev_target
 
+        str_down = f'sending 1st target coord: {self.periscope.target.get_description()} to down plane process by ' + mp.process.current_process().name + '\n'
+        print(str_down)
+        with open('первый_опыт.txt', 'a') as f:
+            f.write(str_down)
+        self.down_plane_queue.put(self.periscope.target)  # send
+
+        str_up = f'sending 1st target coord: {self.periscope.target.get_description()} to up plane process by ' + mp.process.current_process().name + '\n'
+        print(str_up)
+        with open('первый_опыт.txt', 'a') as f:
+            f.write(str_up)
+        self.up_plane_queue.put(self.periscope.target)  # send
+
         exit_app = False
         iteration = 0
         max_iteration = 4
+        sleep_time = 2
         while not exit_app and iteration <= max_iteration:
 
             p1_intersect = self.periscope.laser.intersect_plane(self.periscope.mirror_down.triangle)
@@ -131,14 +146,23 @@ class PeriscopeApplication:
             self.renderer.render(p1_intersect, p2_intersect, tee, prev_tee, p_aim)
 
             if iteration == max_iteration:
-                sleep(5)
+                sleep(sleep_time)
                 break
 
             self.update_log(iteration, p_aim, 'before move')
             exit_app, need_rebuild = self.__move_target(iteration)
 
-            self.down_plane_queue.put(self.periscope.target)
-            self.up_plane_queue.put(self.periscope.target)
+            str_down = f'sending target coord: {self.periscope.target.get_description()} to down plane process by ' + mp.process.current_process().name + '\n'
+            print(str_down)
+            with open('первый_опыт.txt', 'a') as f:
+                f.write(str_down)
+            self.down_plane_queue.put(self.periscope.target)  # send
+
+            str_up = f'sending target coord: {self.periscope.target.get_description()} to up plane process by ' + mp.process.current_process().name + '\n'
+            print(str_up)
+            with open('первый_опыт.txt', 'a') as f:
+                f.write(str_up)
+            self.up_plane_queue.put(self.periscope.target) # send
 
             self.update_log(iteration, p_aim, 'after move')
             iteration += 1
@@ -146,7 +170,7 @@ class PeriscopeApplication:
             self.apply_changes(self.periscope.mirror_down.triangle, self.down_plane_points)
             self.apply_changes(self.periscope.mirror_up.triangle, self.up_plane_points)
             # update log
-            sleep(5)
+            sleep(sleep_time)
 
         self.up_plane_process.terminate()
         self.down_plane_process.terminate()
@@ -175,7 +199,7 @@ class PeriscopeApplication:
 
 
     def write_log(self):
-        f = open('/Users/epriimak/Desktop/Periscope/logs/a.txt', 'w')
+        f = open('/Users/epriimak/Desktop/Diplom/Periscope/logs/a.txt', 'w')
         f.writelines(self.log_list)
         f.close()
 
@@ -190,6 +214,5 @@ if __name__ == '__main__':
     input_model: str = '2d'
     algorithm: SolveAlgorithm = SolveAlgorithm.DIRECT
 
-    input_model = sys.argv[1]
     app = PeriscopeApplication(input_model, algorithm)
     app.run()

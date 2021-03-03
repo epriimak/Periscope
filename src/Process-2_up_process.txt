@@ -1,0 +1,9 @@
+Process-2: принят pktCoords is: x: 0.200 y: 0.460 доставлен , send Coords is: x: 0.200 y: 0.460
+Process-2: принят pktCoords is: x: 0.200 y: 0.430 доставлен , send Coords is: x: 0.200 y: 0.430
+Process-2: принят pktCoords is: x: 0.170 y: 0.430 доставлен , send Coords is: x: 0.170 y: 0.430
+Process-2: принят pktCoords is: x: 0.170 y: 0.400 доставлен , send Coords is: x: 0.170 y: 0.400
+Process-2: принят pktCoords is: x: 0.170 y: 0.370 доставлен , send Coords is: x: 0.170 y: 0.370
+Process-2: принят pktCoords is: x: 0.170 y: 0.340 доставлен , send Coords is: x: 0.170 y: 0.340
+Process-2: принят pktCoords is: x: 0.140 y: 0.340 доставлен , send Coords is: x: 0.140 y: 0.340
+Process-2: принят pktCoords is: x: 0.170 y: 0.370 сброшен  send Coords is: x: 0.170 y: 0.370
+Process-2: принят pktCoords is: x: 0.170 y: 0.340 сброшен  send Coords is: x: 0.170 y: 0.340

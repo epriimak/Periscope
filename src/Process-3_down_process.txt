@@ -1,0 +1,7 @@
+process: Process-3 got: Coords is: x: 0.200 y: 0.460
+process: Process-3 got: Coords is: x: 0.200 y: 0.430
+process: Process-3 got: Coords is: x: 0.170 y: 0.430
+process: Process-3 got: Coords is: x: 0.170 y: 0.400
+process: Process-3 got: Coords is: x: 0.170 y: 0.370
+process: Process-3 got: Coords is: x: 0.170 y: 0.340
+process: Process-3 got: Coords is: x: 0.140 y: 0.340

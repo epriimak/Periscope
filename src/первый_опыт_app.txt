@@ -1,0 +1,20 @@
+sending 1st target coord: Coords is: x: 0.20 y: 0.46 to down plane process by MainProcess
+sending 1st target coord: Coords is: x: 0.20 y: 0.46 to up plane process by MainProcess
+sending target coord: Coords is: x: 0.20 y: 0.51 to down plane process by MainProcess
+sending target coord: Coords is: x: 0.20 y: 0.51 to up plane process by MainProcess
+process: Process-1 location: MirrorLocation.UP got: Coords is: x: 0.20 y: 0.46
+process: Process-2 location: MirrorLocation.DOWN got: Coords is: x: 0.20 y: 0.46
+process: Process-2 location: MirrorLocation.DOWN got: Coords is: x: 0.20 y: 0.51
+process: Process-1 location: MirrorLocation.UP got: Coords is: x: 0.20 y: 0.51
+sending target coord: Coords is: x: 0.20 y: 0.56 to down plane process by MainProcess
+sending target coord: Coords is: x: 0.20 y: 0.56 to up plane process by MainProcess
+process: Process-2 location: MirrorLocation.DOWN got: Coords is: x: 0.20 y: 0.56
+process: Process-1 location: MirrorLocation.UP got: Coords is: x: 0.20 y: 0.56
+sending target coord: Coords is: x: 0.15 y: 0.56 to down plane process by MainProcess
+sending target coord: Coords is: x: 0.15 y: 0.56 to up plane process by MainProcess
+process: Process-2 location: MirrorLocation.DOWN got: Coords is: x: 0.15 y: 0.56
+process: Process-1 location: MirrorLocation.UP got: Coords is: x: 0.15 y: 0.56
+sending target coord: Coords is: x: 0.10 y: 0.56 to down plane process by MainProcess
+sending target coord: Coords is: x: 0.10 y: 0.56 to up plane process by MainProcess
+process: Process-2 location: MirrorLocation.DOWN got: Coords is: x: 0.10 y: 0.56
+process: Process-1 location: MirrorLocation.UP got: Coords is: x: 0.10 y: 0.56

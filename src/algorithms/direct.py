@@ -164,6 +164,11 @@ class DirectAlgorithm:
 
         while True:
             periscope.target = self_queue.get()
+            process_name = mp.process.current_process().name
+            str_process = 'process: ' + process_name + ' location: ' + str(plane_loc) + ' got: ' + periscope.target.get_description() + '\n'
+            print(str_process)
+            with open('первый_опыт.txt', 'a') as f:
+                f.write(str_process)
 
             diff = DirectAlgorithm.final_ray_target_diff(periscope.laser, periscope.mirror_down.triangle,
                                                          periscope.mirror_up.triangle, periscope.target.location)
